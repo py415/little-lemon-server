@@ -8,6 +8,8 @@ class Booking(models.Model):
     name = models.CharField(max_length=255)
     no_of_guests = models.SmallIntegerField()
     booking_date = models.DateTimeField()
+    booking_time = models.TimeField(null=True)
+    occasion = models.CharField(max_length=255, null=True)
 
 
 class Menu(models.Model):
