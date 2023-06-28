@@ -35,10 +35,18 @@ class BookingView(generics.ListCreateAPIView):
 class MenuItemView(generics.ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-    permission_classes = [IsAdminUser]
+
+    def get_permissions(self):
+        if self.request.method in ["POST"]:
+            self.permission_classes = [IsAdminUser]
+        return super(MenuItemView, self).get_permissions()
 
 
 class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-    permission_classes = [IsAdminUser]
+
+    def get_permissions(self):
+        if self.request.method in ["POST", "PUT", "PATCH", "DELETE"]:
+            self.permission_classes = [IsAdminUser]
+        return super(SingleMenuItemView, self).get_permissions()
