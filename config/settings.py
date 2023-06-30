@@ -158,7 +158,7 @@ CORS_ALLOWED_ORIGINS = (
     ["https://little-lemon-web.vercel.app/"]
     if (config("PYTHON_ENV") == "production")
     else [
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
     ]
 )
