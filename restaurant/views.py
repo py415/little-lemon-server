@@ -27,11 +27,19 @@ class BookingView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        """
-        This view returns a list of all the bookings for the currently authenticated user.
+        user = self.request.user
 
-        Returns empty list if user is anonymous.
-        """
+        if not user.is_anonymous:
+            return Booking.objects.filter(user=user)
+
+        return Booking.objects.none()
+
+
+class SingleBookingView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = BookingSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
         user = self.request.user
 
         if not user.is_anonymous:
