@@ -12,6 +12,7 @@ djangorestframework-simplejwt = "*"
 django-cors-headers = "*"
 gunicorn = "*"
 mysql-connector-python = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
