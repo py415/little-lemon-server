@@ -153,7 +153,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = (
-    ["https://little-lemon-web.vercel.app/"]
+    ["https://little-lemon-web.vercel.app"]
     if (config("PYTHON_ENV") == "production")
     else [
         "http://localhost:3000",
